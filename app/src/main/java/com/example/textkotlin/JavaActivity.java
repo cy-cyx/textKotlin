@@ -30,5 +30,16 @@ public class JavaActivity extends AppCompatActivity {
 
         text6_1.Companion.getA();
         text6_1.Companion.B();
+
+        // 伴生对象
+        text9.INSTANCE.b();
+        text9.INSTANCE.getA();
+
+        text9_1.Companion.b();
+        text9_1.Companion.getA();
+
+        text9_2.clazz c = new text9_2.clazz();
+        text9_3.clazz c1 = new text9_3().new clazz();
+
     }
 }

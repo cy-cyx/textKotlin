@@ -210,3 +210,111 @@ public final class Text5Kt {
 #### @Throws
 
 同Throws
+
+### 循环
+
+见 text8
+
+涉及关键字 in downTo until step
+
+### companion 和 object
+
+见text9.kt
+
+两种单例形式
+
+``` java
+object text9{
+    val a = 1
+
+    fun b(){}
+}
+
+public final class text9 {
+   private static final int a = 1;
+   public static final text9 INSTANCE;
+
+   public final int getA() {
+      return a;
+   }
+
+   public final void b() {
+   }
+
+   private text9() {
+   }
+
+   static {
+      text9 var0 = new text9();
+      INSTANCE = var0;
+      a = 1;
+   }
+}
+```
+
+``` java
+class text9_1 {
+    companion object {
+        val a = 1
+
+        fun b() {}
+    }
+
+    fun c() {}
+}
+public final class text9_1 {
+   private static final int a = 1;
+   public static final text9_1.Companion Companion = new text9_1.Companion((DefaultConstructorMarker)null);
+
+   public final void c() {
+   }
+
+   public static final class Companion {
+      public final int getA() {
+         return text9_1.a;
+      }
+
+      public final void b() {
+      }
+
+      private Companion() {
+      }
+
+      // $FF: synthetic method
+      public Companion(DefaultConstructorMarker $constructor_marker) {
+         this();
+      }
+   }
+}
+```
+
+两者的区别：object是加载时,并初始化一个静态的自己；companion objec是加载时,初始化一个
+静态内部类(而不是自己，这便是区别，也是伴生对象名字的由来吧）
+
+#### 内部类和静态内部类的区别
+
+``` java
+class text9_2 {
+
+    // 静态内部类
+    class clazz {
+
+    }
+}
+public final class text9_2 {
+
+   // 默认就是static final （因为kotlin的类，默认都是final，如果需要继承需要open修饰）
+   public static final class clazz {
+   }
+}
+```
+
+``` java
+class text9_3 {
+
+    // 内部类
+    inner class clazz {
+
+    }
+}
+```

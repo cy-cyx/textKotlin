@@ -24,5 +24,15 @@ class KotlinActivity : AppCompatActivity() {
 
         text6.B()
         text6_1.B()
+
+        // 伴生对象
+        text9.a
+        text9.b()
+
+        text9_1.a
+        text9_1.b()
+
+        var c = text9_2.clazz()
+        var c1 = text9_3().clazz()
     }
 }
