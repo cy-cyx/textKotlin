@@ -318,3 +318,17 @@ class text9_3 {
     }
 }
 ```
+
+### lateinit 和 by lazy
+
+见text10.kt
+
+lateinit用于var非空
+
+by lazy用于val惰性初始化
+
+### by 关键字
+
+见text11
+
+可快速构建装饰者模式，可以替代继承
