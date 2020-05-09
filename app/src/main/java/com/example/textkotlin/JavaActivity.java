@@ -41,5 +41,9 @@ public class JavaActivity extends AppCompatActivity {
         text9_2.clazz c = new text9_2.clazz();
         text9_3.clazz c1 = new text9_3().new clazz();
 
+        // 扩展
+        text12 c2 = new text12();
+        c2.a();
+        Text12_1Kt.b(c2);
     }
 }

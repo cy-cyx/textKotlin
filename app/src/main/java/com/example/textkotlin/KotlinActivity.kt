@@ -34,5 +34,10 @@ class KotlinActivity : AppCompatActivity() {
 
         var c = text9_2.clazz()
         var c1 = text9_3().clazz()
+
+        // 扩展
+        var c2 = text12()
+        c2.a()
+        c2.b()
     }
 }

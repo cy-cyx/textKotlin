@@ -332,3 +332,40 @@ by lazy用于val惰性初始化
 见text11
 
 可快速构建装饰者模式，可以替代继承
+
+### 扩展
+
+``` java
+class text12 {
+
+    var c = 1
+
+    fun a() {
+        System.out.print("a")
+    }
+}
+
+fun text12.b() {
+    System.out.print(c)
+}
+```
+实际上使用装饰者的做法
+```
+public final class Text12_1Kt {
+   public static final void b(@NotNull text12 $this$b) {
+      Intrinsics.checkParameterIsNotNull($this$b, "$this$b");
+      System.out.print($this$b.getC());
+   }
+}
+```
+定义的规则：
+1、不能覆盖原有的同名方法
+
+2、扩展成员变量，其实没有真正的扩展，扩展后的成员没有幕后变量filed,var必须有getset方法,
+val必须有get方法
+
+### 密封类
+
+限制了有限的子类
+
+注意：object和class 区别 object是一个单例，同时也是无参class
