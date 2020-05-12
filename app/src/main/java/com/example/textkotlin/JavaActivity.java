@@ -45,5 +45,9 @@ public class JavaActivity extends AppCompatActivity {
         text12 c2 = new text12();
         c2.a();
         Text12_1Kt.b(c2);
+
+        // 泛类
+        text14.text14_1 cla = new text14.text14_1<cla2>();
+//        cla3 a = cla.a;
     }
 }

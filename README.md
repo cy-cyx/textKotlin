@@ -369,3 +369,7 @@ val必须有get方法
 限制了有限的子类
 
 注意：object和class 区别 object是一个单例，同时也是无参class
+
+### 泛类
+
+java 和 kotlin 区别
