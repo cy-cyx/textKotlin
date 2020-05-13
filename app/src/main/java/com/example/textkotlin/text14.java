@@ -23,7 +23,7 @@ public class text14<T> {
         dst.setT(src.getT());
     }
 
-    // 为了同一个文件用静态内部类
+    // 泛型限制
     public static class text14_1<T extends cla2> {
         T a;
     }

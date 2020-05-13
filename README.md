@@ -373,3 +373,124 @@ val必须有get方法
 ### 泛类
 
 java 和 kotlin 区别
+
+#### *类型擦除*
+
+泛类仅存于编译期间,由编译器处理泛类，当编译成字节码后全部变成上界即
+
+``` java
+编译前：
+public static class text<T> {
+    T a;
+}
+编译后：
+public static class text {
+    Object a;
+}
+
+public static class text<T extands String> {
+    T a;
+}
+编译后：
+public static class text {
+    String a;
+}
+```
+因为泛类jdk 1.5 之后出现为了兼容之前版本(用反射即可以躲过泛类的规则)
+
+#### 上界下界
+
+**上界**：< ? extands T> T即为上界(父类)  对应 kotlin中的 **out**  =》生产者
+
+**下界**：< ? super T> T即为下界(子类)  对应kotlin中的 **in**  =》消费者
+
+#### java中的泛类
+
+
+
+``` java
+// 普通的泛类
+public class text<T> {
+
+    private T t;
+
+    public T getT() {
+        return t;
+    }
+
+    public void setT(T t) {
+        this.t = t;
+    }
+
+    /**
+     * <\? extends T> 接受包括他的子类
+     * <\? super T> 接受包括他的父类
+     * 解决了泛类没有继承性的问题
+     */
+    public void copy(text14<? extends T> src, text14<? super T> dst) {
+        dst.setT(src.getT());
+    }
+}
+
+// 加限制的泛类的上界
+public static class text14<T extends cla2> {
+    T a;
+}
+
+注意：没有限定下界
+// public static class text14<T super cla2> {
+    // T a;
+// }
+```
+
+#### kotlin中泛类
+
+``` java
+// 最普通的泛类
+class clazz1<T> {
+    var a: T? = null
+
+    fun copy(src: clazz1<out T>, dst: clazz1<in T>) {
+        dst.a = src.a
+    }
+}
+
+// 限制上界（泛类限制）
+class clazz1<T：cla>{
+
+}
+
+// out 指定T用于生产者(仅用于返回)  协变
+interface interface1<out T> {
+    fun getA(): T
+}
+
+// 也可以消费者（输入）    逆变
+interface interface1<in T> {
+    fun getA(a:T)
+}
+
+// 类型投影
+var cla1: clazz1<in String> = clazz1<Any>()
+
+
+```
+
+#### 类型投影
+``` java
+
+// 类型投影
+var cla1: clazz1<in String> = clazz1<Any>()
+
+```
+
+#### 泛类限制
+``` java
+// 限制上界（泛类限制）
+class clazz1<T：cla>{
+
+}
+
+// 常见的例子
+// <T : Comparable<T>>
+```
